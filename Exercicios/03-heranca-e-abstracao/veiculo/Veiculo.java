@@ -1,3 +1,5 @@
+package com.estudos.veiculo;
+
 public abstract class Veiculo {
 
     private String marca;

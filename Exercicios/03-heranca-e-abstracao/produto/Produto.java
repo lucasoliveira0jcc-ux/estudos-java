@@ -1,3 +1,5 @@
+package estudos.exercicios.heranca.produto;
+
 public abstract class Produto {
 
     private String nome;
