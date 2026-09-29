@@ -1,4 +1,4 @@
-package com.estudos.veiculo;
+package veiculo;
 
 public abstract class Veiculo {
 
