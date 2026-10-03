@@ -31,4 +31,11 @@ public String toString(){
     return "numeroDaConta: " + numeroDaConta + " agencia " + agencia + " saldo " + saldo + " cliente " + titular;
 }
 public abstract void sacar(double valor);
+
+protected void creditar(double valor){
+    this.saldo = this.saldo + valor;
+}
+protected void debitar(double valor){
+    this.saldo = this.saldo - valor;
+}
 }
