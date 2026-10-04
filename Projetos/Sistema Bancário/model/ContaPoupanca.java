@@ -15,9 +15,11 @@ public void sacar(double valor){
     if(getSaldo() < valor){
         System.out.println("Saldo insuficiente. Saldo disponivel: " + getSaldo());
     }
+    else debitar(valor);
 }
 public void aplicarRendimento(){
-     rendimento = getSaldo() * rendimento;
+     double valorRendimento = getSaldo() * rendimento;
+     creditar(valorRendimento);
 }
 public double getRendimento(){
     return rendimento;
