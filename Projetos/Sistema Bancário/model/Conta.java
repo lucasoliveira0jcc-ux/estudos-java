@@ -36,6 +36,7 @@ public String toString(){
     return "numeroDaConta: " + numeroDaConta + " agencia " + agencia + " saldo " + saldo + " cliente " + titular;
 }
 public abstract void sacar(double valor);
+public abstract void depositar(double valor);
 
 protected void creditar(double valor){
     this.saldo = this.saldo + valor;
@@ -47,5 +48,9 @@ protected void debitar(double valor){
 }
 public List<Transacao> getHistorico(){
     return historico;
+}
+public void transferir(double valor, Conta destino){
+    this.sacar(valor);
+    destino.depositar(valor);
 }
 }

@@ -1,5 +1,7 @@
 package model;
 
+import exception.SaldoInsuficienteException;
+
 public class ContaPoupanca extends Conta{
 private double rendimento;
 
@@ -7,13 +9,14 @@ public ContaPoupanca( double rendimento, String numeroDaConta, String agencia, C
     super(numeroDaConta, agencia, titular );
     this.rendimento = rendimento;
 }
+@Override
 public void depositar(double valor){
     creditar(valor);
 }
 @Override
 public void sacar(double valor){
     if(getSaldo() < valor){
-        System.out.println("Saldo insuficiente. Saldo disponivel: " + getSaldo());
+        throw new SaldoInsuficienteException("Saldo insuficiente. Saldo disponivel: " + getSaldo());
     }
     else debitar(valor);
 }
