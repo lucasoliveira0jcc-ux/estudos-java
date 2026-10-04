@@ -1,17 +1,22 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Conta{
 
     private String numeroDaConta;
     private String agencia;
     private double saldo;
     private Cliente titular;
+    private List<Transacao> historico;
 
 public Conta(String numeroDaConta, String agencia, Cliente titular){
     this.numeroDaConta = numeroDaConta;
     this.agencia = agencia;
     this.saldo = 0.0;
     this.titular = titular;
+    this.historico = new ArrayList<>();
 }
 
 public String getNumeroDaConta(){
@@ -34,8 +39,13 @@ public abstract void sacar(double valor);
 
 protected void creditar(double valor){
     this.saldo = this.saldo + valor;
+    historico.add(new Transacao(TipoTransacao.DEPOSITO, valor));
 }
 protected void debitar(double valor){
     this.saldo = this.saldo - valor;
+    historico.add(new Transacao(TipoTransacao.SAQUE, valor));
+}
+public List<Transacao> getHistorico(){
+    return historico;
 }
 }
