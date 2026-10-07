@@ -29,7 +29,19 @@ public Conta buscarContaPorNumero(String numero){
         return conta;
     }
     }
+
     return null;
+}
+
+   public Cliente buscarClientePorCpf(String cpf){
+    for (Cliente cliente : clientes){
+    if (cliente.getCpf().equals(cpf)){
+        return cliente;
+    }
+}
+    return null;
+
+   
 }
 
 public void listarContas(){
