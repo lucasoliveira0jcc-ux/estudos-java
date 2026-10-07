@@ -15,7 +15,7 @@ public void depositar(double valor){
 @Override
 public void sacar(double valor){
     if(valor > getSaldo() + limite){
-        throw new SaldoInsuficienteException("Saldo insuficiente. Saldo disponivel: " + getSaldo());
+        throw new SaldoInsuficienteException("Saldo insuficiente. Saldo disponivel: " + (getSaldo() + limite));
     }
     else debitar(valor);
 }
