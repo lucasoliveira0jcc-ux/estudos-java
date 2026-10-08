@@ -2,7 +2,7 @@ package model;
 
 import exception.SaldoInsuficienteException;
 
-public class ContaPoupanca extends Conta{
+public class ContaPoupanca extends Conta implements Rendavel {
 private double rendimento;
 
 public ContaPoupanca( double rendimento, String numeroDaConta, String agencia, Cliente titular){
@@ -20,6 +20,7 @@ public void sacar(double valor){
     }
     else debitar(valor);
 }
+@Override
 public void aplicarRendimento(){
      double valorRendimento = getSaldo() * rendimento;
      creditar(valorRendimento);
